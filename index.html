@@ -1229,7 +1229,9 @@ async function shareIG(){const v=S.sv;if(!v)return;v.pause=true;const u=svList()
   g.fillStyle='rgba(255,255,255,.85)';g.font='600 30px monospace';g.textAlign='center';g.fillText((s.pl||'').toUpperCase()+' · liberate.app',W/2,H-60);
   const blob=await new Promise(ok=>c.toBlob(ok,'image/jpeg',.9));const file=new File([blob],'liberate-historia.jpg',{type:'image/jpeg'});
   if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Liberate',text:'Entrené con Liberate 💪'});toast('Elegí Instagram → Historia')}
-  else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='liberate-historia.jpg';document.body.appendChild(a);a.click();a.remove();toast('Imagen guardada con la marca Liberate. Subila a tu historia de Instagram')}
+  else{let dl=null;try{dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null}catch(e){}
+  if(dl){try{await dl.save({filename:'liberate-historia.jpg',data:blob})}catch(e){await dl.save({filename:'liberate-historia.jpg',data:new Uint8Array(await blob.arrayBuffer())})}toast('Imagen lista con la marca Liberate. Subila a tu historia de Instagram')}
+  else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='liberate-historia.jpg';document.body.appendChild(a);a.click();a.remove();toast('Imagen guardada con la marca Liberate. Subila a tu historia de Instagram')}}
  }catch(e){if(e&&e.name=='AbortError')toast('Cancelado');else toast('No se pudo preparar la imagen en esta vista')}
  v.pause=false}
 function rr(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
