@@ -261,9 +261,51 @@ textarea:focus,.inp:focus{outline:none;border-color:var(--ac)}
 .hbar{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:13.5px}.hbar span{width:70px}.hbar div{flex:1;height:10px;border-radius:6px;background:var(--gr);overflow:hidden}.hbar i{display:block;height:100%;background:var(--ac);border-radius:6px}.hbar b{font:700 12.5px var(--fm);width:76px;text-align:right}
 .rate{display:flex;gap:6px}.rate button{border:1px solid var(--bd);background:rgba(255,255,255,.05);color:#fff;border-radius:999px;padding:6px 10px;font:600 12px Inter;cursor:pointer}.rate button.on{background:var(--ac);color:var(--acx);border-color:var(--ac)}.rate button.bad.on{background:var(--no);border-color:var(--no);color:#3A100B}
 .srch{margin-bottom:12px}
+/* ===== v9.1: Hoy a pantalla completa + editor de historias ===== */
+.stage.full{position:sticky;top:0;margin:0 -18px;border-radius:0;border:0;height:calc(100svh - 196px);min-height:520px;z-index:0}
+.stage.full .ph{filter:blur(1.5px) saturate(1.1)}
+.stage.full .sh{background:linear-gradient(180deg,rgba(7,28,18,.45) 0%,rgba(7,28,18,0) 25%,rgba(7,28,18,.15) 55%,rgba(7,28,18,.85) 88%,rgba(7,28,18,.95) 100%)}
+.stage.full .lucas{height:clamp(190px,34svh,270px);left:18px;bottom:182px}
+.stage.full .shadow{left:30px;bottom:176px;width:84px}
+.stage.full .bub{left:clamp(110px,32vw,140px);top:auto;bottom:calc(182px + clamp(190px,34svh,270px) - 70px);right:16px}
+.stage.full .bub b{font-size:20px}
+.stage.full .crowd{left:clamp(118px,34vw,150px);bottom:178px}
+.stage.full .empty{left:150px;bottom:200px}
+.stage.full .vote{position:absolute;left:16px;right:16px;bottom:108px;margin:0;z-index:4}
+.stage.full .vote .btn{padding:15px;font-size:17px}
+.btn.glass{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.over{position:relative;z-index:2;margin:-96px -18px 0;padding:12px 18px 10px;border-radius:30px 30px 0 0;background:linear-gradient(180deg,#0C301F,#0A2A1B 40%);box-shadow:0 -14px 40px rgba(0,0,0,.35);min-height:60vh}
+/* Stickers */
+.stk{position:absolute;z-index:3;padding:9px 14px;border-radius:12px;font:900 italic 17px/1.15 var(--fd);font-stretch:108%;text-align:center;max-width:78%;white-space:normal;display:flex;align-items:center;gap:6px;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25);touch-action:none;user-select:none;cursor:grab}
+.stk.s-w{background:#fff;color:#0A2A1B}.stk.s-m{background:linear-gradient(140deg,#D6F3DA,#96D9A3 55%,#6FB28C);color:#0A2A1B}.stk.s-d{background:#0A2A1B;color:#96D9A3}.stk.s-o{background:transparent;color:#fff;border:2.5px solid #fff;box-shadow:none;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.stk.k-loc{font:700 14px var(--fm);font-style:normal;letter-spacing:.06em}.stk.k-time{font:700 15px var(--fm);font-style:normal}
+.stk.k-logo svg{width:20px;height:20px}.stk.k-logo span{letter-spacing:.02em}
+.stk.k-men{font:700 16px Inter;font-style:normal}
+.stk.drag{cursor:grabbing;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+#sv .stk{pointer-events:none}
+#ed{position:fixed;inset:0;z-index:65;background:#000;display:none;touch-action:none}
+#ed.on{display:block}
+#ed .fr{position:absolute;inset:0;max-width:430px;margin:0 auto;overflow:hidden;background:#111}
+#ed .img{position:absolute;inset:0;background:#0F4A2E center/cover no-repeat}
+#ed .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,0) 18%,rgba(0,0,0,0) 78%,rgba(0,0,0,.6));pointer-events:none}
+.ebar{position:absolute;left:12px;right:12px;top:calc(14px + env(safe-area-inset-top,0px));display:flex;gap:8px;z-index:5}
+.eb{width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.35);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.eplace{position:absolute;left:16px;top:calc(68px + env(safe-area-inset-top,0px));z-index:5;font:700 12px var(--fm);padding:6px 10px;border-radius:9px;background:rgba(0,0,0,.4);color:#fff}
+.ehint{position:absolute;left:30px;right:30px;top:42%;z-index:2;text-align:center;font:600 15px/1.4 Inter;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);pointer-events:none}
+.trash{position:absolute;left:50%;bottom:110px;width:56px;height:56px;margin-left:-28px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:22px;z-index:4;background:rgba(0,0,0,.3);transition:transform .15s}
+.trash.on{display:flex}.trash.hot{transform:scale(1.25);background:#F29C8F}
+.efoot{position:absolute;left:12px;right:12px;bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;z-index:5}
+.eshare{flex:1;display:flex;align-items:center;gap:10px;height:52px;border-radius:26px;border:0;background:rgba(255,255,255,.95);color:#0A2A1B;font:700 15px Inter;padding:0 8px 0 11px;cursor:pointer}
+.eshare em{margin-left:auto;font:700 12px var(--fm);font-style:normal;background:#0A2A1B;color:#96D9A3;padding:6px 10px;border-radius:14px}
+.enext{width:52px;height:52px;border-radius:50%;border:0;background:#96D9A3;color:#0A2A1B;font-size:22px;cursor:pointer}
+.tray{position:absolute;inset:0;z-index:6;background:rgba(0,0,0,.35);display:flex;align-items:flex-end}
+.tbox{width:100%;max-height:70%;overflow:auto;border-radius:26px 26px 0 0;background:rgba(14,40,28,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);padding:12px 14px calc(24px + env(safe-area-inset-bottom,0px));animation:up .25s ease}
+.tgrid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tgrid button{background:none;border:0;padding:0;cursor:pointer}
+.tgrid .stk{position:relative;left:auto!important;top:auto!important;transform:none!important;max-width:none;box-shadow:none}
 
 </style></head><body>
-<div id="app"></div><div id="sv"></div><div class="toast" id="t"></div>
+<div id="app"></div><div id="sv"></div><div id="ed"></div><div class="toast" id="t"></div>
 <script>
 const RT=[{n:'Circuito express',lv:'Intermedio',eq:'Sin equipo',ex:['Sentadillas','Flexiones','Mountain climbers','Plancha','Burpees','Zancadas']},{n:'Tren inferior',lv:'Principiante',eq:'Sin equipo',ex:['Sentadilla sumo','Puente de glúteos','Zancadas alternas','Sentadilla con salto','Elevación de talones','Sentadilla isométrica','Patada de glúteo','Estocada lateral']},{n:'Movilidad y elongación',lv:'Todos',eq:'Colchoneta',ex:['Rotación de cadera','Gato y vaca','Estocada con giro','Estiramiento de isquios','Postura del niño']}];
 function casa(){if(S.run)return runner();if(S.rut!=null)return detail();
@@ -346,8 +388,8 @@ const HUES=[150,30,200,330,90,260,10,180,50,280,120,350,210,70,300,160,20,240,10
 const AL_N=['Caro M.','Nico P.','Lau G.','Fede R.','Sofi D.','Mati L.','Juli A.','Agus B.','Vale T.','Lucho F.','Mica S.','Tomi H.','Pau C.','Eze O.','Flor N.','Gonza V.','Cami Q.','Dami K.','Rocío E.','Santi Z.'];
 const PTS0=[148,121,96,92,88,80,76,70,66,61,58,54,49,44,40,36,30,26,20,14];
 const SEED=[
- [0,[{img:IMG.plaza,pl:'Plaza',cap:'Circuito de los miércoles ✔',h:2}]],
- [1,[{img:'gym',pl:'Power Gym',cap:'Día de pesas rusas 🔥',h:3},{txt:'Semana 4 cumpliendo el plan 💪',bg:'linear-gradient(160deg,#96D9A3,#0F4A2E)',pl:'Power Gym',h:3}]],
+ [0,[{img:IMG.plaza,pl:'Plaza',h:2,st:[{t:'No es libertad, es liberate.',x:50,y:30,r:-4,v:'w'},{k:'loc',x:30,y:72,r:3,v:'m'}]}]],
+ [1,[{img:'gym',pl:'Power Gym',h:3,st:[{t:'Agradecete por venir a entrenar 🙌',x:50,y:22,r:3,v:'m'},{k:'logo',x:50,y:78,r:-3,v:'d'}]},{txt:'Semana 4 cumpliendo el plan 💪',bg:'linear-gradient(160deg,#96D9A3,#0F4A2E)',pl:'Power Gym',h:3}]],
  [3,[{img:'night',pl:'Plaza',cap:'Cerramos el día así 🙌',h:5}]],
  [4,[{img:'pov',pl:'Power Gym',cap:'Listos para liberarnos',h:6}]],
  [2,[{txt:'Dale, liberate.',bg:'linear-gradient(160deg,#0A2A1B,#0F4A2E 60%,#6FB28C)',pl:'Plaza',h:7}]],
@@ -404,18 +446,36 @@ function storiesBar(){const me=S.me,has=me.stories.length;
  return `<div class="stories" role="list">`
  +`<button class="st ${has?(allSeen(me)?'seen':''):'none'}" onclick="${has?"openSV('me')":'pickStory()'}" aria-label="Tu historia"><div class="rg">${AV(me,0)}<span class="plus" onclick="event.stopPropagation();pickStory()">+</span></div><span class="nm">Tu historia</span></button>`
  +storyUsers().map(u=>`<button class="st ${allSeen(u)?'seen':''}" onclick="openSV(${u.id})"><div class="rg">${AV(u,0)}<span class="tg">${u.stories[u.stories.length-1].pl=='Power Gym'?'GYM':'PLAZA'}</span></div><span class="nm">${esc(u.n)}</span></button>`).join('')
- +`</div><input type="file" id="fup" accept="image/*" hidden onchange="gotFile(this)">`}
-function pickStory(){$('#fup').click()}
-function gotFile(inp){const f=inp.files&&inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>{S.up={img:e.target.result,pl:lugar()=='Power Gym'?'Power Gym':'Plaza',cap:''};R()};r.readAsDataURL(f);inp.value=''}
-function demoStory(){S.up={img:IMG.plaza,pl:'Plaza',cap:''};R()}
-function upSheet(){const u=S.up;if(!u)return '';const first=!S.me.storyHoy;
- return `<div class="mod" onclick="if(event.target==this){S.up=null;R()}"><div class="box"><div class="grab"></div><div class="row"><h3 style="margin:0">Nueva historia</h3><span class="pill ${first?'p-ok':'p-gr'}">${first?'+'+PTS.story+' pts':'ya sumaste hoy'}</span></div>
- <div class="prev" style="background-image:url('${u.img}')"><span class="place">📍 ${u.pl.toUpperCase()}</span></div>
- <div class="mu sm">¿Dónde entrenaste?</div><div class="chips" style="margin:6px 0 10px">${['Plaza','Power Gym'].map(p=>`<button class="chip ${u.pl==p?'on':''}" onclick="S.up.pl='${p}';R()">${p=='Plaza'?'🌳 Plaza':'🏋️ Power Gym'}</button>`).join('')}</div>
- <input class="inp" maxlength="60" placeholder="Escribí algo (opcional)" value="${esc(u.cap)}" oninput="S.up.cap=this.value">
- <button class="btn ac" style="width:100%;margin-top:12px" onclick="postStory()">Compartir en tu historia</button>
- <div class="note">La ven todos los alumnos de Liberate durante 24 h. Sumás puntos con 1 historia por día de entrenamiento.</div></div></div>`}
-function postStory(){const u=S.up;S.me.stories.push({id:'me'+Date.now(),img:u.img,pl:u.pl,cap:u.cap,h:0,likes:0,liked:0,views:0});S.up=null;
+ +`</div><input type="file" id="fcam" accept="image/*" capture="user" hidden onchange="gotFile(this)"><input type="file" id="fgal" accept="image/*" hidden onchange="gotFile(this)">`}
+function pickStory(gal){const i=$(gal?'#fgal':'#fcam');if(i)i.click()}
+function gotFile(inp){const f=inp.files&&inp.files[0];if(!f)return;const r=new FileReader();r.onload=e=>openEd(e.target.result);r.readAsDataURL(f);inp.value=''}
+function demoStory(){openEd(IMG.plaza)}
+/* ---- Editor de historia con stickers (estilo Instagram) ---- */
+const STK=[{t:'Agradecete por venir a entrenar 🙌'},{t:'No es libertad, es liberate.'},{t:'Dale, liberate.'},{t:'Hoy me liberé 💪'},{t:'Vine igual 🌧'},{t:'Gracias, profe 🫶'},{t:'Team 19:30 🌙'},{t:'Team 8 AM ☀️'},{k:'loc'},{k:'logo'},{k:'time'},{k:'men',t:'@profe.lucas'}];
+const STV=['w','m','d','o'];
+function stkIn(k,pl){return k.k=='loc'?`${IC.pin.replace('<svg','<svg width="15" height="15"')}${(pl||'Plaza').toUpperCase()}`:k.k=='logo'?`${L_SVG}<span>LIBERATE</span>`:k.k=='time'?`${hr()} · ${new Date().toLocaleDateString('es-AR',{weekday:'short',day:'numeric'})}`:esc(k.t)}
+const stkHTML=(k,i,pl)=>`<div class="stk s-${k.v} ${k.k?'k-'+k.k:''}" data-i="${i}" style="left:${k.x}%;top:${k.y}%;transform:translate(-50%,-50%) rotate(${k.r}deg) scale(${k.sc||1})">${stkIn(k,pl)}</div>`;
+function openEd(img){S.up={img,pl:lugar()=='Power Gym'?'Power Gym':'Plaza',st:[],tray:false};drawEd()}
+function closeEd(){S.up=null;const e=$('#ed');e.className='';e.innerHTML='';R()}
+function addStk(i){const u=S.up,k={...STK[i],x:50,y:30+(u.st.length*11)%45,r:[-4,3,-2,5,-6][u.st.length%5],v:STV[u.st.length%3]};u.st.push(k);u.tray=false;drawEd()}
+function drawEd(){const u=S.up,el=$('#ed');if(!u)return;el.className='on';const first=!S.me.storyHoy;
+ el.innerHTML=`<div class="fr" id="edf"><div class="img" style="background-image:url('${u.img}')"></div><div class="grad"></div>
+ <div class="ebar"><button class="eb" onclick="closeEd()" aria-label="Cerrar">✕</button><div style="flex:1"></div>
+ <button class="eb" onclick="S.up.pl=S.up.pl=='Plaza'?'Power Gym':'Plaza';drawEd()" aria-label="Cambiar lugar">${IC.pin.replace('<svg','<svg width="20" height="20"')}</button>
+ <button class="eb" onclick="S.up.tray=!S.up.tray;drawEd()" aria-label="Stickers">☺︎</button><button class="eb" onclick="pickStory(1)" aria-label="Galería">🖼</button></div>
+ <div class="eplace">📍 ${u.pl}</div>
+ ${u.st.map((k,i)=>stkHTML(k,i,u.pl)).join('')}
+ ${u.st.length?'':`<div class="ehint">Tocá ☺︎ para sumar stickers · arrastralos · tocá uno para cambiar el color</div>`}
+ <div class="trash" id="trash">🗑</div>
+ <div class="efoot"><button class="eshare" onclick="postStory()">${AV(S.me,30)}<span>Tu historia</span>${first?`<em>+${PTS.story} pts</em>`:''}</button><button class="enext" onclick="postStory()" aria-label="Compartir">➜</button></div>
+ ${u.tray?`<div class="tray" onclick="if(event.target==this){S.up.tray=false;drawEd()}"><div class="tbox"><div class="grab"></div><div class="lbl" style="text-align:center;margin-bottom:12px">Stickers Liberate</div><div class="tgrid">${STK.map((k,i)=>`<button onclick="addStk(${i})">${stkHTML({...k,x:50,y:50,r:0,v:STV[i%3],sc:.85},i,u.pl).replace('position:absolute','')}</button>`).join('')}</div></div></div>`:''}</div>`;
+ bindEd()}
+function bindEd(){const f=$('#edf');f.querySelectorAll('.stk').forEach(n=>{if(n.closest('.tray'))return;let sx,sy,moved,k=S.up.st[+n.dataset.i];
+ n.addEventListener('pointerdown',e=>{e.preventDefault();n.setPointerCapture(e.pointerId);sx=e.clientX;sy=e.clientY;moved=false;n.classList.add('drag')});
+ n.addEventListener('pointermove',e=>{if(sx==null)return;if(Math.abs(e.clientX-sx)+Math.abs(e.clientY-sy)>6)moved=true;if(!moved)return;const r=f.getBoundingClientRect();k.x=Math.max(5,Math.min(95,(e.clientX-r.left)/r.width*100));k.y=Math.max(8,Math.min(95,(e.clientY-r.top)/r.height*100));n.style.left=k.x+'%';n.style.top=k.y+'%';const t=$('#trash');t.classList.add('on');t.classList.toggle('hot',k.y>84&&Math.abs(k.x-50)<16)});
+ n.addEventListener('pointerup',()=>{sx=null;n.classList.remove('drag');const t=$('#trash');const del=t.classList.contains('hot');t.className='trash';
+  if(del){S.up.st.splice(S.up.st.indexOf(k),1)}else if(!moved){k.v=STV[(STV.indexOf(k.v)+1)%STV.length]}drawEd()})})}
+function postStory(){const u=S.up;S.me.stories.push({id:'me'+Date.now(),img:u.img,pl:u.pl,st:u.st,h:0,likes:0,liked:0,views:0});S.up=null;const e=$('#ed');e.className='';e.innerHTML='';
  if(!S.me.storyHoy){S.me.storyHoy=1;addMe('story','Stories',PTS.story)}else toast('Historia publicada');R();
  setTimeout(()=>{const s=S.me.stories[S.me.stories.length-1];s.views=3;s.likes=1;R()},2500);setTimeout(()=>{const s=S.me.stories[S.me.stories.length-1];s.views=9;s.likes=4;if(!S.sv)toast('❤ A Caro y 3 más les gustó tu historia');R()},6000)}
 /* viewer */
@@ -442,7 +502,7 @@ function drawSV(){const v=S.sv,L=svList(),u=L[v.ui],s=u.stories[v.si];S.seen[s.i
  <div class="hd">${AV(u,34)}<b>${me?'Tu historia':esc(u.n)}</b><small>${hace(s.h)}</small><button class="x" aria-label="Cerrar" onclick="closeSV()">×</button></div>
  <div class="place">${IC.pin.replace('<svg','<svg width="13" height="13"')} ${s.pl.toUpperCase()}</div>
  ${me&&s.pl?`<div class="pts">+${PTS.story} PTS</div>`:''}
- ${s.cap?`<div class="cap">${esc(s.cap)}</div>`:''}
+ ${(s.st||[]).map((k,i)=>stkHTML(k,i,s.pl)).join('')}${s.cap?`<div class="cap">${esc(s.cap)}</div>`:''}
  <div class="tap l"></div><div class="tap r"></div>
  <svg class="bigh" id="bigh" viewBox="0 0 24 24"><path fill="#fff" d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5C19 15.6 12 20 12 20z"/></svg>
  <div class="ft">${me?`<div class="own"><div class="faces">${S.al.slice(0,Math.min(3,s.views||0)).map(a=>AV(a,26)).join('')}</div><span>${s.views?`Visto por ${s.views} · ❤ ${s.likes}`:'Todavía nadie la vio'}</span></div><button onclick="toast('Demo: borrar historia')" aria-label="Más">⋯</button>`
@@ -463,17 +523,20 @@ function bindSV(){const f=$('#svf');let x0,y0,t0,lt=0,hold;
 addEventListener('keydown',e=>{if(!S.sv)return;if(e.key=='ArrowRight')svGo(1);if(e.key=='ArrowLeft')svGo(-1);if(e.key=='Escape')closeSV()});
 
 /* ---------- Escena de Lucas ---------- */
-function stage(prof){const c=cnt(),cx=S.clima=='cancelada',k=cx?'r':S.clima=='a_confirmar'?'c':'',now=performance.now(),ent=now-S.lucT<1000,
+function stage(prof,full){const c=cnt(),cx=S.clima=='cancelada',k=cx?'r':S.clima=='a_confirmar'?'c':'',now=performance.now(),ent=now-S.lucT<1000,
  lab=cx?'🌧 Lluvia':S.clima=='a_confirmar'?'☁️ A confirmar':S.turno=='m'?'☀️ 22° · Soleado':'🌆 19° · Atardecer',
  ab=S.llamada=='abierta',say=cx?'Hoy no se entrena, chicos 🌧':S.fin?'¡Gracias por venir! Contame qué te pareció 👇':S.clima=='a_confirmar'?'Miro el cielo y les confirmo… ☁️':ab?(esc(S.msg)||'Hoy entrenamos, ¿quién viene?'):'En un rato abro la lista de hoy 😉',
  ppl=cx?[]:voyList(),MAX=11,shown=ppl.slice(0,MAX),more=ppl.length-shown.length;
- return `<div class="stage ${k}"><div class="ph" style="background-image:url('${IMG[S.turno]}')"></div><div class="sh"></div>
+ return `<div class="stage ${k}${full?' full':''}"><div class="ph" style="background-image:url('${IMG[S.turno]}')"></div><div class="sh"></div>
  <div class="hud"><span class="pill glass">${lab}</span><span class="pill glass">Mié ${hr()} · ${lugar()}</span></div>
  <div class="bub glass ${ent?'in':''}"><span class="lbl">PROFE LUCAS</span><b>${say}</b></div>
  <div class="shadow"></div><div class="lucas ${ent?'in wv':''}" role="img" aria-label="Profe Lucas"><i></i></div>
  ${ppl.length?`<div class="crowd">${shown.map(p=>{const nw=now-p.t<1500;return `<div class="av ${p.me?'me':''} ${nw?'new':''}" title="${esc(p.n)}" style="${avBg(p)}${nw?`;animation-delay:${Math.max(0,p.t-now+150)}ms`:''}">${p.foto?'':ini(p.n)}</div>`}).join('')}${more>0?`<div class="av more">+${more}</div>`:''}<div class="ct"><b>${c.v}</b>VAN HOY · CUPO ${CUPO}</div></div>`
  :cx?'':`<div class="empty">${ab?'Sé el primero en sumarte 🙌':''}</div>`}
- ${cx?'<div class="ovl"><b>Clase cancelada<br>por lluvia</b></div>':''}</div>`}
+ ${cx?'<div class="ovl"><b>Clase cancelada<br>por lluvia</b></div>':''}${full?voteBtns():''}</div>`}
+function voteBtns(){const m=S.me,ab=S.llamada=='abierta';if(S.clima=='cancelada'||!ab)return '';
+ if(S.fin)return `<div class="vote"><button class="btn glass" onclick="scrollTo({top:innerHeight*.55,behavior:'smooth'})">${m.a&&!m.opSent?'Contale a Lucas qué te pareció ↓':'Clase terminada · ver más ↓'}</button></div>`;
+ return `<div class="vote"><button class="btn ${m.mi=='voy'?'ok sel':'glass'}" onclick="mi('voy')">${m.mi=='voy'?'✔ Voy':'Voy'}</button><button class="btn ${m.mi=='no_voy'?'no sel':'glass'}" onclick="mi('no_voy')">${m.mi=='no_voy'?'✖ No voy':'No voy'}</button></div>`}
 
 /* ---------- Alumno ---------- */
 const TABS=[['hoy','Hoy'],['lib','Mi Liberate'],['com','Comunidad'],['tienda','Tienda'],['perfil','Perfil']];
@@ -481,21 +544,20 @@ const PT=[['hoy','Hoy'],['agenda','Agenda'],['clases','Clases'],['alumnos','Alum
 const nav=()=>`<nav class="nav">${(S.role=='profe'?PT:TABS).map(([k,l])=>`<button class="${(S.role=='profe'?S.ptab:S.tab)==k?'on':''}" onclick="go('${k}')" aria-label="${l}"><i>${IC[k]}</i>${l.toUpperCase()}</button>`).join('')}</nav>`;
 function go(t){if(S.role=='profe'){S.ptab=t;S.mas=null}else{S.tab=t;S.prod=null;S.chk=null}clearInterval(S.iv);S.run=null;S.rut=null;R();scrollTo(0,0)}
 const nCart=()=>Object.values(S.cart).reduce((a,b)=>a+b.q,0);
-const hdr=()=>`<div class="top2">${LOGO()}<div style="display:flex;gap:8px"><button class="ic" onclick="toast('Push: Lucas abrió la lista de hoy')" aria-label="Notificaciones">${IC.bell}<em>2</em></button><button class="demo glass" onclick="S.role='login';R()">Ver como profe</button></div></div>`;
+const hdr=()=>`<div class="top2">${LOGO()}<div style="display:flex;gap:8px"><button class="ic" onclick="toast('Push: Lucas abrió la lista de hoy')" aria-label="Notificaciones">${IC.bell}<em>2</em></button><button class="demo glass" onclick="S.role='profe';S.ptab='hoy';S.mas=null;R();scrollTo(0,0)">Ver como profe</button></div></div>`;
 const pg=(t,b,sub)=>`<div class="page">${hdr()}<h2 style="margin-bottom:${sub?2:12}px">${t}</h2>${sub?`<div class="mu sm" style="margin-bottom:14px">${sub}</div>`:''}${b}</div>`;
 const alumno=()=>(S.tab=='hoy'?hoy():S.tab=='lib'?lib():S.tab=='casa'?casa():S.tab=='com'?com():S.tab=='tienda'?tienda():perfil())+nav();
 
 function hoy(){const ab=S.llamada=='abierta',cx=S.clima=='cancelada',m=S.me,r=myRank();
- let h=`<div class="page">${hdr()}${storiesBar()}${stage()}`;
- if(!cx&&ab&&!S.fin)h+=`<div class="vote"><button class="btn ${m.mi=='voy'?'ok sel':''}" onclick="mi('voy')">${m.mi=='voy'?'✔ Voy':'Voy'}</button><button class="btn ${m.mi=='no_voy'?'no sel':''}" onclick="mi('no_voy')">${m.mi=='no_voy'?'✖ No voy':'No voy'}</button></div>`;
+ let h=`<div class="page">${hdr()}${storiesBar()}${stage(0,1)}<div class="over"><div class="grab" style="margin-bottom:14px"></div>`;
  if(S.clima=='a_confirmar')h+=`<div class="alert">☁️ Clima en duda · Lucas confirma antes de las 18 h</div>`;
  if(cx)h+=`<div class="alert" style="background:var(--nob);color:var(--no);border-color:rgba(242,156,143,.3)">Clase cancelada por lluvia. No se descuenta de tu plan.</div>`;
  if(S.fin&&m.a&&!m.opSent)h+=opinion();
  if(S.fin&&m.opSent)h+=`<div class="card"><b>¡Gracias por tu opinión! 🙌</b><div class="mu sm">Lucas la ve para armar las próximas clases.</div></div>`;
  if(m.mi=='voy'&&!S.fin&&!cx)h+=`<div class="card"><div class="row"><div><div class="lbl">Tu lugar está</div><b style="font-size:17px">Mié ${hr()} · ${lugar()}</b></div><span class="pill p-ok">Confirmado</span></div><div class="mu sm" style="margin-top:6px">Sumás <b style="color:var(--ac)">+${PTS.asis} pts</b> cuando el profe te marque presente.</div></div>`;
  h+=`<div class="card hl" style="cursor:pointer" onclick="go('com')"><div class="ptsc"><div><div class="lbl">Tus puntos de noviembre</div><div class="n">${m.pts}</div></div><div style="margin-left:auto;text-align:right"><div class="lbl">Alumno del mes</div><b style="font:900 italic 30px var(--fd)">#${r}</b><div class="sm">${r==1?'¡Vas primero! 👑':`a ${rankAll()[0].pts-m.pts+1} pts del 1°`}</div></div></div></div>`;
- if(!m.stories.length)h+=`<div class="card" style="display:flex;gap:12px;align-items:center"><div style="font-size:28px">📸</div><div style="flex:1"><b>Subí tu historia de hoy</b><div class="mu sm">+${PTS.story} pts · mostrá cómo entrenás en la plaza o en Power Gym</div></div><button class="mini" onclick="pickStory()">Subir</button></div><div class="note" style="margin-top:-6px"><a href="#" style="color:var(--mu)" onclick="event.preventDefault();demoStory()">Demo: usar foto de ejemplo</a></div>`;
- return h+`</div>`+upSheet()}
+ if(!m.stories.length)h+=`<div class="card" style="display:flex;gap:12px;align-items:center"><div style="font-size:28px">📸</div><div style="flex:1"><b>Subí tu historia de hoy</b><div class="mu sm">+${PTS.story} pts · mostrá cómo entrenás en la plaza o en Power Gym</div></div><button class="mini" onclick="pickStory()">📷 Abrir cámara</button></div><div class="note" style="margin-top:-6px"><a href="#" style="color:var(--mu)" onclick="event.preventDefault();pickStory(1)">Elegir de la galería</a> · <a href="#" style="color:var(--mu)" onclick="event.preventDefault();demoStory()">usar foto de ejemplo</a></div>`;
+ return h+`</div></div>`}
 function mi(v){const m=S.me;m.mi=m.mi==v?'esperado':v;if(m.mi=='voy'){m.mit=performance.now();S.lucT=0}toast(m.mi=='esperado'?'Quitaste tu respuesta':m.mi=='voy'?'¡Dale! Lucas ya sabe que vas ✔':'Avisaste que no vas');R()}
 function opinion(){const m=S.me;
  return `<div class="card hl"><div class="lbl">Clase terminada · Mié ${hr()}</div><h3 style="margin:4px 0 0;font:800 italic 22px var(--fd)">¿Qué te pareció?</h3>
@@ -661,6 +723,6 @@ function R(){const a=document.activeElement,keep=a&&a.tagName=='TEXTAREA';
  if(keep){const t=$('textarea');if(t){t.focus();t.setSelectionRange(t.value.length,t.value.length)}}}
 /* Demo: Lucas abre la encuesta y van llegando respuestas */
 S.lucT=performance.now();R();
-setTimeout(()=>{const now=performance.now();[9,10,12,14].forEach((i,k)=>{S.al[i].st='voy';S.al[i].t=now+k*450});if(!S.sv&&S.role=='alumno'&&S.tab=='hoy'&&!S.up)R()},2200);
+setTimeout(()=>{const now=performance.now();[9,10,12,14].forEach((i,k)=>{S.al[i].st='voy';S.al[i].t=now+k*450});if(!S.sv&&!S.up&&!(document.activeElement&&document.activeElement.tagName=='INPUT'))R()},2200);
 
 </script></body></html>
