@@ -3266,6 +3266,11 @@ document.addEventListener('click',()=>{SFX.clk=0},true);document.addEventListene
 /* llave en el perfil */
 function sndT(){SFX.on=!SFX.on;try{localStorage.setItem('lib_snd',SFX.on?'1':'0')}catch(e){}if(SFX.on)SFX.play('voy');R()}
 const _pf34=perfil;perfil=function(){const h=_pf34(),row=`<div class="card sndc" onclick="sndT()"><div><b>${SFX.on?'🔊':'🔈'} Sonidos</b><div class="mu sm">Toques suaves al usar la app</div></div><span class="sndt ${SFX.on?'on':''}"><i></i></span></div>`;let i=h.indexOf('Acceso profes');if(i<0)i=h.indexOf('auSalir()');if(i<0)return h+row;const j=h.lastIndexOf('<button',i);return h.slice(0,j)+row+h.slice(j)};
+
+/* v34b · destrabar el audio en iPhone/Android en el primer toque */
+(function(){const un=()=>{try{const a=SFX.ctx();if(!a)return;const b=a.createBuffer(1,1,22050),src=a.createBufferSource();src.buffer=b;src.connect(a.destination);src.start(0);a.resume&&a.resume();if(a.state=='running'){['touchstart','touchend','pointerdown','click','keydown'].forEach(t=>document.removeEventListener(t,un,true))}}catch(e){}};
+ ['touchstart','touchend','pointerdown','click','keydown'].forEach(t=>document.addEventListener(t,un,true));
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&SFX.ac&&SFX.ac.state!='running')SFX.ac.resume()})})();
 R();
 
 </script></body></html>
